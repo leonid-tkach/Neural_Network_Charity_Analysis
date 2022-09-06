@@ -1,5 +1,46 @@
 # Neural_Network_Charity_Analysis
 
+## Purpose of the analysis
+
+ML-based prediction of how successful are going to be applicants for funding. It is based on the historical data on the Alphabet Soup's customers.
+
+## Data preprocessing
+
+- target variable: IS_SUCCESSFUL
+- feature variables: APPLICATION_TYPE, AFFILIATION, CLASSIFICATION, USE_CASE, ORGANIZATION, INCOME_AMT, ASK_AMT
+- removed variables: EIN, NAME, STATUS, SPECIAL_CONSIDERATIONS
+
+## Compiling, Training, and Evaluating the Model
+
+To maximize my model's performance I used the following layers and activation functions:
+
+`50 epochs`
+
+`hidden_nodes_layer1 = 19`, `sigmoid`
+
+`hidden_nodes_layer2 = 19`, `softmax`
+
+`hidden_nodes_layer3 = 19`, `selu`
+
+Output layer, `sigmoid`
+
+### Was I able to achieve the target model performance?
+
+No, I wasn't. My best accuracy is 0.7280.
+
+### What steps did you take to try and increase model performance?
+
+See Optimization 1-4 below
+
+## Summary
+
+It's a bit early to use the model commercially. So there is no any business/practical results yet. Talking about the process of optimization, the main result for me is understanding of 'no-miracleness' of ML. The-bigger-the-better approach does not work. I mean, everything written in the Modules regarding this turned out to be true.
+
+If I started from the scratch I would do two things:
+
+- First, I would've tried some K-means or Hierarchical clustering to better understand how I should basket some features
+- Second, I would've written a script to try different layers and activation functions' configurations, launched it in the evening, and looked into the results in the morning. Unfortunately, I didn't have enough ML intuition for such endeavor when I only started this challenge.
+
 ## Optimization 1
 
 I start optimizing the model using chapters 4 and 5 from "Deep Learning in Python" (F. Cholett). I follow the recommendations from Module 19  in Optimization 2.
@@ -705,3 +746,71 @@ Output layer, `sigmoid`
 Loss|Accuracy
 ---|---
 ![](./analysis/loss_48.png)|![](./analysis/acc_48.png)
+
+## Optimization 4
+
+### 4.1 Beginning
+
+`100 epochs`
+
+`hidden_nodes_layer1 = 8`, `relu`
+
+`hidden_nodes_layer2 = 5`, `relu`
+
+Output layer, `sigmoid`
+
+accuracy: 0.7256
+
+Loss|Accuracy
+---|---
+![](./analysis/loss_49.png)|![](./analysis/acc_49.png)
+
+### 4.2 Deleted STATUS and SPECIAL_CONSIDERATIONS
+
+`100 epochs`
+
+`hidden_nodes_layer1 = 8`, `relu`
+
+`hidden_nodes_layer2 = 5`, `relu`
+
+Output layer, `sigmoid`
+
+accuracy: 0.7276
+
+Loss|Accuracy
+---|---
+![](./analysis/loss_50.png)|![](./analysis/acc_50.png)
+
+### 4.3 Doubled layers' size
+
+`100 epochs`
+
+`hidden_nodes_layer1 = 16`, `relu`
+
+`hidden_nodes_layer2 = 10`, `relu`
+
+Output layer, `sigmoid`
+
+accuracy: 0.7251
+
+Loss|Accuracy
+---|---
+![](./analysis/loss_51.png)|![](./analysis/acc_51.png)
+
+### 4.4 My best one
+
+`50 epochs`
+
+`hidden_nodes_layer1 = 19`, `sigmoid`
+
+`hidden_nodes_layer2 = 19`, `softmax`
+
+`hidden_nodes_layer3 = 19`, `selu`
+
+Output layer, `sigmoid`
+
+accuracy: 0.7280
+
+Loss|Accuracy
+---|---
+![](./analysis/loss_52.png)|![](./analysis/acc_52.png)
